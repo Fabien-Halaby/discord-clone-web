@@ -4,4 +4,5 @@ export type Message = {
     created_at: string;
     icon_url: string | null;
     is_owner: boolean;
+    author_id: number;
 }

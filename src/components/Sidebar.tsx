@@ -11,6 +11,7 @@ import type { Server } from "../types/server";
 export default function Sidebar() {
     const [servers, setServers] = useState<Server[]>([]);
     const [selectedServer, setSelectedServer] = useState(0);
+    console.log(selectedServer);
 
     useEffect(() => {
         fetchServers().then((res) => setServers(res.data));
@@ -27,7 +28,6 @@ export default function Sidebar() {
                 {/* Server Lists */}
                 <ServerList 
                     servers={servers}
-                    selectedServer={selectedServer}
                 />
             </div>
             <div>

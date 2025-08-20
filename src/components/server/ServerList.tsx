@@ -1,7 +1,9 @@
+import { useServer } from "../../hooks/useServer";
 import type { Server } from "../../types/server";
 import ServerItem from "./ServerItem";
 
-export default function ServerList({servers, selectedServer}: {servers: Server[], selectedServer: number}) {
+export default function ServerList({servers}: {servers: Server[]}) {
+    const {selectedServerID} = useServer();
     return (
         <div>
             <p className="text-sm text-white font-extralight mb-2">Servers</p>
@@ -12,7 +14,7 @@ export default function ServerList({servers, selectedServer}: {servers: Server[]
                             <ServerItem
                                 key={i}
                                 id={v.id}
-                                isSelected={v.id == selectedServer} 
+                                isSelected={v.id == selectedServerID} 
                                 name={v.name}
                             />
                         ))
